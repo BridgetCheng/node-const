@@ -1,6 +1,6 @@
 {
   "name": "node-const",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make variable become constant for javascript.",
   "main": "constant.js",
   "scripts": {
