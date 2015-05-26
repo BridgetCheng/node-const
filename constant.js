@@ -5,6 +5,10 @@
 (function() {
 
   function Constant(item) {
+    if (typeof item != 'object') {
+      return item;
+    }
+
     for (var key in item) {
       if (typeof(item[key]) == 'object')
         Constant(item[key]);
@@ -17,10 +21,21 @@
       });
     }
 
-    if (typeof item == 'object')
-      Object.preventExtensions(item);
-
+    Object.preventExtensions(item);
     return item;
+  }
+
+  Constant.define = function(obj, key, value) {
+    if (typeof obj != 'object') {
+      var obj = this;
+      key = obj, value = key;
+    }
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: false
+    });
   }
 
   // Node.js
