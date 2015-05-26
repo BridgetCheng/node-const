@@ -12,18 +12,17 @@
     }
 
     // avoid circular references
-    Constant.define(item, '___CONSTANT___', true);
+    Object.defineProperty(item, '___CONSTANT___', {
+      value: true,
+      enumerable: false,
+      configurable: true
+    });
 
     for (var key in item) {
       if (typeof(item[key]) == 'object')
         Constant(item[key]);
 
-      Object.defineProperty(item, key, {
-        value: item[key],
-        enumerable: true,
-        configurable: true,
-        writable: false
-      });
+      Constant.define(item, key, item[key]);
     }
 
     Object.preventExtensions(item);
