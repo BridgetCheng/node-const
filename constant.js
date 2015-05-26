@@ -26,10 +26,6 @@
   }
 
   Constant.define = function(obj, key, value) {
-    if (typeof obj != 'object') {
-      var obj = this;
-      key = obj, value = key;
-    }
     Object.defineProperty(obj, key, {
       value: value,
       enumerable: true,
