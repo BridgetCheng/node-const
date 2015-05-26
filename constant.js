@@ -7,7 +7,12 @@
   function Constant(item) {
     if (typeof item != 'object') {
       return item;
+    } else if (item.___CONSTANT___) {
+      return item;
     }
+
+    // avoid circular references
+    Constant.define(item, '___CONSTANT___', true);
 
     for (var key in item) {
       if (typeof(item[key]) == 'object')
