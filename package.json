@@ -1,0 +1,26 @@
+{
+  "name": "node-const",
+  "version": "0.1.0",
+  "description": "Make variable become constant for javascript.",
+  "main": "constant.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lellansin/node-const.git"
+  },
+  "keywords": [
+    "constant"
+  ],
+  "author": "Lellansin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lellansin/node-const/issues"
+  },
+  "homepage": "https://github.com/Lellansin/node-const",
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^6.0.3"
+  }
+}
